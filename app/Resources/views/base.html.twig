@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <title>{% block title %}Events Calendar{% endblock %}</title>
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('js/base.js') }}" rel="javascript" />
+    {% block stylesheets %}
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
   </head>
   <body>
-    <nav id="sidebar">
-      <a href="/">Home</a>|
-      <a href="/event/index">Events</a>
-    </nav>
+    <div class="topnav">
+      <a class="" href="/">Home</a>|
+      <a class="{{'/event/' in app.request.uri ? 'active':''}}" href="{{ path('event_index')}}">Events</a>
+    </div>
 
     <div id="content">
-    {% block body %}{% endblock %}
-  </div>
-</body>
+      {% block body %}
+      {% endblock %}
+    </div>
+
+    <footer>
+      &copy; Copyright MN, 2017
+    </footer>
+  </body>
 </html>

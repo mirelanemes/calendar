@@ -1,0 +1,4 @@
+app_event:
+    resource: "@AppBundle/Resources/config/routing/event.yml"
+    prefix:   /event
+

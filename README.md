@@ -17,8 +17,11 @@ git clone -b dev https://github.com/mirelanemes/calendar.git
 php composer.phar install
 
 php bin/console doctrine:database:create - Creates the configured database
+
 php bin/console doctrine:schema:create - Executes the SQL needed to generate the database schema
 
 php bin/console server:run - Run project on localhost
 
 Browse http://localhost:8000/event/
+
+Documentation was generatid with apigen and can be found under /api folder

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Events Calendar{% endblock %}</title>
+  </head>
+  <body>
+    <nav id="sidebar">
+      <a href="/">Home</a>|
+      <a href="/event/index">Events</a>
+    </nav>
+
+    <div id="content">
+    {% block body %}{% endblock %}
+  </div>
+</body>
+</html>

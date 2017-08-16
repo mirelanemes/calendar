@@ -2,38 +2,45 @@
 
 namespace AppBundle\Entity;
 
+use JMS\Serializer\Annotation as JMSSerializer;
+
 /**
- * Event
+ * @JMSSerializer\ExclusionPolicy("all")
  */
-class Event
-{
+class Event implements \JsonSerializable {
+
     /**
-     * @var int
+     * @JMSSerializer\Expose
      */
     private $id;
 
     /**
      * @var string
+     * @JMSSerializer\Expose
      */
     private $description;
 
     /**
      * @var \DateTime
+     * @JMSSerializer\Expose
      */
     private $start;
 
     /**
      * @var \DateTime
+     * @JMSSerializer\Expose
      */
     private $end;
 
     /**
      * @var string
+     * @JMSSerializer\Expose
      */
     private $location;
 
     /**
      * @var string
+     * @JMSSerializer\Expose
      */
     private $comment;
 
@@ -47,14 +54,12 @@ class Event
      */
     private $modifiedAt;
 
-
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -65,8 +70,7 @@ class Event
      *
      * @return Event
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -77,8 +81,7 @@ class Event
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -89,8 +92,7 @@ class Event
      *
      * @return Event
      */
-    public function setStart($start)
-    {
+    public function setStart($start) {
         $this->start = $start;
 
         return $this;
@@ -101,8 +103,7 @@ class Event
      *
      * @return \DateTime
      */
-    public function getStart()
-    {
+    public function getStart() {
         return $this->start;
     }
 
@@ -113,8 +114,7 @@ class Event
      *
      * @return Event
      */
-    public function setEnd($end)
-    {
+    public function setEnd($end) {
         $this->end = $end;
 
         return $this;
@@ -125,8 +125,7 @@ class Event
      *
      * @return \DateTime
      */
-    public function getEnd()
-    {
+    public function getEnd() {
         return $this->end;
     }
 
@@ -137,8 +136,7 @@ class Event
      *
      * @return Event
      */
-    public function setLocation($location)
-    {
+    public function setLocation($location) {
         $this->location = $location;
 
         return $this;
@@ -149,8 +147,7 @@ class Event
      *
      * @return string
      */
-    public function getLocation()
-    {
+    public function getLocation() {
         return $this->location;
     }
 
@@ -161,8 +158,7 @@ class Event
      *
      * @return Event
      */
-    public function setComment($comment)
-    {
+    public function setComment($comment) {
         $this->comment = $comment;
 
         return $this;
@@ -173,8 +169,7 @@ class Event
      *
      * @return string
      */
-    public function getComment()
-    {
+    public function getComment() {
         return $this->comment;
     }
 
@@ -185,8 +180,7 @@ class Event
      *
      * @return Event
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -197,8 +191,7 @@ class Event
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -209,8 +202,7 @@ class Event
      *
      * @return Event
      */
-    public function setModifiedAt($modifiedAt)
-    {
+    public function setModifiedAt($modifiedAt) {
         $this->modifiedAt = $modifiedAt;
 
         return $this;
@@ -221,9 +213,22 @@ class Event
      *
      * @return \DateTime
      */
-    public function getModifiedAt()
-    {
+    public function getModifiedAt() {
         return $this->modifiedAt;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    function jsonSerialize() {
+        return [
+            'id' => $this->id,
+            'description' => $this->description,
+            'comment' => $this->comment,
+            'location' => $this->location,
+            'start' => $this->start,
+            'end' => $this->end,
+        ];
+    }
+
+}

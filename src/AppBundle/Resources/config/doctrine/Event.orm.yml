@@ -1,7 +1,7 @@
 AppBundle\Entity\Event:
     type: entity
-    table: null
-    repositoryClass: AppBundle\Repository\EventRepository
+    table: event
+    repositoryClass: AppBundle\Entity\Repository\EventRepository
     id:
         id:
             type: integer
@@ -14,8 +14,10 @@ AppBundle\Entity\Event:
             length: 255
         start:
             type: datetime
+            nullable: true
         end:
             type: datetime
+            nullable: true
         location:
             type: string
             length: 255
@@ -26,7 +28,11 @@ AppBundle\Entity\Event:
         createdAt:
             type: datetime
             column: created_at
+            nullable: true
+            default: CURRENT_TIMESTAMP
         modifiedAt:
             type: datetime
             column: modified_at
+            nullable: true
+            default: CURRENT_TIMESTAMP
     lifecycleCallbacks: {  }

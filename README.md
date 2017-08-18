@@ -4,17 +4,15 @@ calendar
 A Symfony project created on July 21, 2017, 7:15 pm.
 # calendar
 
-Includes
 - Event Entity and yml ORM generated
-
-- CRUD operations
-- generated forms for frontend
+- added some rest apis documented in api.html file
 
 Usage:
 
-git clone -b dev https://github.com/mirelanemes/calendar.git
+git clone -b dev https://github.com/mirelanemes/calendar.git  
 
-php composer.phar install
+composer update
+composer install
 
 php bin/console doctrine:database:create - Creates the configured database
 
@@ -22,6 +20,4 @@ php bin/console doctrine:schema:create - Executes the SQL needed to generate the
 
 php bin/console server:run - Run project on localhost
 
-Browse http://localhost:8000/event/
-
-Documentation was generatid with apigen and can be found under /api folder
+GET http://localhost:8001/app_dev.php/events
